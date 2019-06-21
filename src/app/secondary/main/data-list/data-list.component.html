@@ -1,0 +1,34 @@
+<h2 class="mat-h2">Le tableau incroyable</h2>
+
+
+<div class="container">
+<div>
+  <mat-form-field>
+    <input matInput (keyup)="doFilter($event.target.value)" type="text" placeholder="Filter">
+  </mat-form-field>
+</div>
+</div>
+<div class="container">
+<table matSort (matSortChange)="sortData($event)" class="zui-table">
+    <thead>
+        <tr>
+            <th mat-sort-header="vacancy">Vacancy</th>
+            <th mat-sort-header="deadline" >Deadline</th>
+            <th mat-sort-header="name">Name</th>
+            <th mat-sort-header="age" >Age</th>
+            <th mat-sort-header="experience" >Experience</th>
+        </tr>
+    </thead>
+    <tbody>
+      <ng-template ngFor let-entry [ngForOf]="sortedData | filter : 'searchString' : searchString">
+        <tr *ngFor="let candidate of entry.candidates">
+          <td ><div *ngIf="entry.candidates.indexOf(candidate) == 0">{{ entry.vacancy }}</div></td>
+          <td ><div *ngIf="entry.candidates.indexOf(candidate) == 0">{{ entry.deadline }}</div></td>
+          <td >{{ candidate.name }}</td>
+          <td >{{ candidate.age }}</td>
+          <td >{{ candidate.experience }}</td>
+        </tr>
+      </ng-template>
+    </tbody>
+</table>
+</div>

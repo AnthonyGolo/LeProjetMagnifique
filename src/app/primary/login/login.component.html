@@ -1,0 +1,21 @@
+<h1 class="mat-h2">La page de connexion</h1>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <mat-list>
+    <mat-list-item>
+      <mat-form-field class='mat-body-strong'>
+        <input matInput type="text" formControlName="credential" placeholder="Phone number / E-Mail:">
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field class='mat-body-strong'>
+        <input matInput type="password" formControlName="password" placeholder="Password:">
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <button mat-raised-button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </mat-list-item>
+  </mat-list>  
+
+</form>
+

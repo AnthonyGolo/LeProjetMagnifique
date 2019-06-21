@@ -1,0 +1,3 @@
+<app-bigplus *ngIf="plus" (formAppearance)='showForm($event)'></app-bigplus>
+<app-reactive-form *ngIf="form" (plusAppearance)='showForm($event)' (formData)='addEntry($event)'></app-reactive-form>
+<app-data-list [data]="data"></app-data-list>
