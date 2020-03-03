@@ -22,6 +22,10 @@ export class ReactiveFormComponent implements OnInit {
     }); 
   }
 
+  get currentFormData() { 
+    return <FormArray>this.currentForm.get('candidates')
+  }
+
   ngOnInit() {
   }
 
